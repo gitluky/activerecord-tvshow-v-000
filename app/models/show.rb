@@ -5,12 +5,14 @@ class Show < ActiveRecord::Base
   end
 
   def self.most_popular_show
-    self.highest_rating.take
+    self.highest_rating
   end
 
   def self.lowest_rating
     self.minimum(:rating)
   end
 
-
+  def self.least_popular_show
+    self.lowest_rating
+  end
 end
